@@ -1,0 +1,11 @@
+Apex Trigger: LaptopBooking
+
+trigger LaptopBooking on Laptop_Bookings__c (after insert, after update) {
+// Check if the trigger is after insert or after update
+if (trigger.isAfter && (trigger.isInsert || trigger.isUpdate)) {
+// Call the method to send email notifications from the LaptopBookingHandler
+class
+LaptopBookingHandler.sendEmailNotification(trigger.new);
+}
+}
+

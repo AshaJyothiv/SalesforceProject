@@ -1,0 +1,19 @@
+LaptopBookingHandlerTest
+
+@isTest
+private class LaptopBookingHandlerTest {
+@isTest
+static void testSendEmailNotification() {
+Laptop_Bookings__c testBooking = new Laptop_Bookings__c(
+Email__c = 'ashajyo.veluvarthi@gmail.com',
+Name = 'vicky',
+Amount__c = 2000,
+core_type__c = 'core i3',
+Laptop_names__c = 'dell'
+);
+insert testBooking;
+Test.startTest();
+LaptopBookingHandler.sendEmailNotification(new List<Laptop_Bookings__c>{testBooking});
+Test.stopTest();
+}
+}
